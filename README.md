@@ -146,6 +146,42 @@ A few rules are non-negotiable:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution and evidence format.
 
+## Acknowledgements
+
+### jameywine
+
+A substantial part of the groundwork that made this project practical was done
+by **[jameywine](https://github.com/jameywine)**.
+
+The initial Phoebus RTL9607C research did not start from an empty field. It
+benefited directly from jameywine's prior work collecting, organizing and
+publishing hard-to-find Realtek material, including the Cudy GP3000 GPL source
+and the `realtek-doc` collection. That work provided important source and
+documentation context for RTL960x/RTL9607C investigation.
+
+This is part of a broader body of work rather than a single repository. Public
+work associated with jameywine includes:
+
+- `GPL-for-GP3000`, publishing a modern Realtek/Cudy GPL source tree used as a
+  major reference during the initial port;
+- `realtek-doc`, a curated collection of Realtek SoC/PHY/NIC documentation and
+  source, including RTL9607C application notes and RTL960x material;
+- `RTL960x` and `realtek-user-sources`, additional RTL960x/Realtek research
+  and source collections;
+- ongoing OpenWrt work adding an **RTL9607C/RTL8198D subtarget** and related
+  RTL960x support.
+
+The OpenWrt work is especially relevant because it independently demonstrates
+that this was sustained platform-enablement work: the public RTL9607C/RTL8198D
+series includes SoC support and follow-up driver work for areas such as I2C,
+thermal and clock control.
+
+Phoebus-OS and this documentation repository are independent projects, and any
+mistakes here are ours. But the project explicitly recognizes jameywine's work
+as **foundational prior work**. Without that source preservation, curation and
+platform research, the initial RTL9607C bring-up would have been substantially
+harder and slower.
+
 ## Sources and provenance
 
 [SOURCES.md](SOURCES.md) is the source ledger for the project.

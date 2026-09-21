@@ -172,14 +172,44 @@ because acquisition history matters.
 - **License:** do not infer a repository-wide license; preserve file-level
   notices and source provenance.
 
+### Credit for foundational prior work
+
+The project gives explicit credit to **jameywine** for foundational RTL960x /
+RTL9607C research and source preservation.
+
+This credit is broader than attribution for one repository. The initial Phoebus
+6.18 port used a research corpus materially enabled by jameywine's prior work,
+including the GP3000 GPL publication and curated Realtek documentation. Publicly
+verifiable related work also includes:
+
+- https://github.com/jameywine/GPL-for-GP3000
+- https://github.com/jameywine/realtek-doc
+- https://github.com/jameywine/RTL960x
+- https://github.com/jameywine/realtek-user-sources
+- OpenWrt PR #20064: `realtek: add a new subtarget rtl9607c/rtl8198d with basic support`
+
+The OpenWrt series is authored by jameywine and explicitly targets RTL9607C /
+RTL8198D. Its public description also records follow-up RTL960x support for I2C,
+thermal and clock-controller functionality.
+
+For this project, that body of work is considered **foundational prior work**,
+not merely another external citation. The maintainer states that the initial
+Phoebus bring-up would not have been practical in its present form without that
+earlier collection, preservation and platform research.
+
+This acknowledgment does not transfer responsibility for Phoebus-specific
+claims or bugs: conclusions in this repository still require their own evidence
+chain and remain the responsibility of this project.
+
 ### JAMEYWINE-REALTEK-DOCS — collected Realtek documentation
 
 - **State:** VERIFIED-PUBLIC
 - **Repository:** https://github.com/jameywine/realtek-doc
 - **Pinned evidence head observed during source inventory:** `e17db159796ec389651516d68351d166988978da`
 - **Local directory:** `Jameywine/`
-- **Role:** architecture/SoC/PHY/driver research supplied to the initial porting
-  session.
+- **Role:** foundational architecture/SoC/PHY/driver research supplied to the
+  initial porting session; this collection materially reduced the amount of
+  RTL9607C platform discovery that had to be repeated from scratch.
 - **Repository scope:** curated Realtek documentation and source covering Otto
   switch families and RTL960x/Apollo material. Its README explicitly lists
   **RTL9607C application notes** among the available PDFs and identifies the
