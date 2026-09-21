@@ -161,25 +161,33 @@ because acquisition history matters.
 
 ### RTL96XX-COLLECTION — `rtl96xx` source collection
 
-- **State:** UNRESOLVED
+- **State:** VERIFIED-PUBLIC
+- **Repository:** https://github.com/hades2013/rtl96xx
+- **Pinned evidence head observed during source inventory:** `2adbb7c13787ce370f911934c275e2c8c6a0e5f2`
 - **Local archive/directory:** `rtl96xx-master.zip` / `rtl96xx-master/`
-- **Role:** RTL96xx-family comparative source.
-- **Origin:** a same-name GitHub repository was part of the acquisition process,
-  but multiple public `rtl96xx` mirrors exist and the exact upstream has not
-  yet been pinned.
-- **Action:** do not guess the owner. Add the exact repository URL and commit
-  once the original local checkout/archive provenance is identified.
+- **Role:** RTL96xx-family comparative source containing kernel, application,
+  platform and documentation material.
+- **Use:** comparative evidence unless a specific file/path is shown to apply
+  directly to RTL9607C.
+- **License:** do not infer a repository-wide license; preserve file-level
+  notices and source provenance.
 
 ### JAMEYWINE-REALTEK-DOCS — collected Realtek documentation
 
-- **State:** MAINTAINER-RECORDED
+- **State:** VERIFIED-PUBLIC
+- **Repository:** https://github.com/jameywine/realtek-doc
+- **Pinned evidence head observed during source inventory:** `e17db159796ec389651516d68351d166988978da`
 - **Local directory:** `Jameywine/`
-- **Origin:** documentation gathered from a jameywine Realtek documentation
-  repository.
-- **Role:** architecture/SoC/driver research supplied to the initial porting
+- **Role:** architecture/SoC/PHY/driver research supplied to the initial porting
   session.
-- **Pending:** exact repository name, URL and commit. Do not substitute another
-  jameywine repository merely because it is related.
+- **Repository scope:** curated Realtek documentation and source covering Otto
+  switch families and RTL960x/Apollo material. Its README explicitly lists
+  **RTL9607C application notes** among the available PDFs and identifies the
+  Cudy GP3000 GPL source as containing RTL960x/Cortina code.
+- **Use:** source/documentary evidence at the individual file level; do not
+  treat every document in the collection as RTL9607C-specific.
+- **License:** no blanket repository-wide license is assumed for the collected
+  third-party documents and source; preserve each item's original terms.
 
 ### CN-FORUM-DOCS — Chinese-language forum/document research
 
