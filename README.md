@@ -150,10 +150,21 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution and evidence format.
 
 [SOURCES.md](SOURCES.md) is the source ledger for the project.
 
-It records where material came from, what role it plays in the research, and
-what license or redistribution constraints apply. The external source inventory
-is intentionally incomplete at this initial stage and will be populated from
-the original source material used during the RTL9607C work.
+The initial corpus now records the TP-Link AX10 v3 GPL release, Cudy GP3000
+firmware, RTL8198D/RTL96xx comparative trees, Realtek MIPS RSDK/toolchain
+collections, the jameywine/ProMix0 GP3000 lineage, collected Realtek
+documentation and the still-to-be-pinned Chinese-language research material.
+
+Source duplication is tracked explicitly. For example,
+`jameywine/GPL-for-GP3000` and `ProMix0/rtl8198d-sdk` currently resolve to
+the same Git commit and therefore count as one evidence lineage, not independent
+corroboration.
+
+The initial Linux 6.18 port was AI-assisted: the maintainer reports an
+approximately four-hour continuous Claude Fable 5 synthesis/implementation
+session over the collected corpus. The model output itself is not treated as a
+source. The evidence is the input corpus, resulting Git diff and subsequent
+hardware artifacts.
 
 Third-party source material is **not relicensed** by this repository.
 
@@ -172,6 +183,7 @@ such material instead of copying it. See [SOURCES.md](SOURCES.md).
 The repository is currently in the **source inventory and evidence extraction**
 phase.
 
-The next useful step is to populate `SOURCES.md`, then mine BSP-6, BSP-7 and
-the shared SDK for findings whose evidence can be reconstructed from commits,
-diffs and hardware observations.
+The initial source inventory is now populated. The next useful step is to pin
+the remaining unresolved source URLs/hashes, then mine BSP-6, BSP-7 and the
+shared SDK for findings whose evidence can be reconstructed from commits, diffs
+and hardware observations.

@@ -180,6 +180,27 @@ Include enough test context to make measurements meaningful:
 Do not present one environment's RF or network measurements as universal silicon
 limits.
 
+## AI-assisted research and implementation
+
+AI systems may be used to search, compare, synthesize or implement against the
+source corpus, but **model output is not independent evidence**.
+
+When AI-assisted work contributes to a finding:
+
+- cite the underlying source files/documents rather than the model response;
+- cite the resulting Git diff for implementation changes;
+- cite boot logs, counters or measurements for hardware behaviour;
+- preserve "proposed", "built", "booted" and "hardware-verified" as distinct
+  states;
+- record the model/session as research provenance when historically relevant,
+  but never use "the model concluded X" as the sole basis for a hardware claim.
+
+If a model generates a register interpretation that cannot be traced to source
+or hardware evidence, classify it as **HYPOTHESIS** until independently tested.
+
+Prompts/transcripts should not be committed merely for completeness. If one is
+technically important, sanitize it with the same rules as logs and dumps.
+
 ## Third-party material
 
 Do not import a vendor tree, datasheet dump or other large third-party work into
@@ -204,7 +225,10 @@ technical finding and should not be public, such as:
 - private keys;
 - device-unique credentials;
 - unnecessary personal data;
-- board MAC addresses when the exact address is not part of the finding.
+- board MAC addresses, BSSIDs or SSIDs when the exact value is not essential;
+- local usernames, hostnames and home-directory paths;
+- public/WAN DHCP leases or other ISP-assigned addresses unless the address
+  itself is technically necessary and safe to publish.
 
 Do not sanitize away technically relevant structure; replace values consistently
 when the relationship between them matters.

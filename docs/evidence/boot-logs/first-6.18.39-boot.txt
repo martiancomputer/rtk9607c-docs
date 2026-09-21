@@ -1,0 +1,278 @@
+Phoebus# bootm 0x83000000
+## Booting kernel from Legacy Image at 83000000 ...
+   Image Name:   Linux-6.18.39
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    5895651 Bytes = 5.6 MiB
+   Load Address: 80001000
+   Entry Point:  80a4c8e4
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image
+[    0.000000] Linux version 6.18.39 (<redacted-user>@<redacted-host>) (mips-buildroot-linux-gnu-gcc.br_real (Buildroot 2021.11-18033-g83947c7bb6) 14.3.0, GNU ld (GNU Binutils) 2.43.1) #8 SMP Wed Jul 22 18:19:13 IST 2026
+[    0.000000] MIPS: machine is Realtek Semiconductor RTL9607C
+[    0.000000] [L2_DEBUG:(bsp_scache_config,54)] - L2_Bypass: Disable
+[    0.000000] [L2_DEBUG:(bsp_setup_scache,82)]SCache LineSize= 32 (B)
+[    0.000000] Disable SRAM PLL...
+[    0.000000] done
+[    0.000000] printk: legacy bootconsole [early0] enabled
+[    0.000000] CPU0 revision is: 0001a120 (MIPS interAptiv (multi))
+[    0.000000] MIPS: machine is rtk,9607c
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+[    0.000000] VPE topology {2,2} total 4
+[    0.000000] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+[    0.000000] Primary data cache 32kB, 4-way, PIPT, no aliases, linesize 32 bytes
+[    0.000000] MIPS secondary cache 256kB, 8-way, linesize 32 bytes.
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000000000000-0x000000000fffffff]
+[    0.000000]   HighMem  empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x000000000fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000000fffffff]
+[    0.000000] percpu: Embedded 11 pages/cpu s13968 r8192 d22896 u45056
+[    0.000000] pcpu-alloc: s13968 r8192 d22896 u45056 alloc=11*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+[    0.000000] Kernel command line: console=ttyS0,115200 loglevel=8
+[    0.000000] printk: log buffer data + meta data: 65536 + 204800 = 270336 bytes
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes, linear)
+[    0.000000] Writing ErrCtl register=00000000
+[    0.000000] Readback ErrCtl register=00000000
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 65536
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] NR_IRQS: 128
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.000000] CPU clock is 900
+[    0.000000] [apro_clocks_init]clk_data.clk_num=2, ocp=900000000, lx=200000000
+[    0.000000] clocksource: GIC: mask: 0xffffffffffffffff max_cycles: 0xcf914c9718, max_idle_ns: 440795231327 ns
+[    0.000003] sched_clock: 64 bits at 900MHz, resolution 1ns, wraps every 4398046511103ns
+[    0.009032] Console: colour dummy device 80x25
+[    0.014011] Calibrating delay loop... 597.60 BogoMIPS (lpj=2988032)
+[    0.080835] pid_max: default: 32768 minimum: 301
+[    0.086221] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.094302] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.106297] rcu: Hierarchical SRCU implementation.
+[    0.111575] rcu:     Max phase no-delay instances is 1000.
+[    0.118408] smp: Bringing up secondary CPUs ...
+[    0.124154] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+[    0.124177] Primary data cache 32kB, 4-way, PIPT, no aliases, linesize 32 bytes
+[    0.124193] MIPS secondary cache 256kB, 8-way, linesize 32 bytes.
+[    0.124250] CPU1 revision is: 0001a120 (MIPS interAptiv (multi))
+[    0.126392] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+[    0.126418] Primary data cache 32kB, 4-way, PIPT, no aliases, linesize 32 bytes
+[    0.126431] MIPS secondary cache 256kB, 8-way, linesize 32 bytes.
+[    0.126469] CPU2 revision is: 0001a120 (MIPS interAptiv (multi))
+[    0.136194] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+[    0.136219] Primary data cache 32kB, 4-way, PIPT, no aliases, linesize 32 bytes
+[    0.136232] MIPS secondary cache 256kB, 8-way, linesize 32 bytes.
+[    0.136275] CPU3 revision is: 0001a120 (MIPS interAptiv (multi))
+[    0.136478] smp: Brought up 1 node, 4 CPUs
+[    0.229932] Memory: 235448K/262144K available (10588K kernel code, 7076K rwdata, 2644K rodata, 1644K init, 243K bss, 25052K reserved, 0K cma-reserved, 0K highmem)
+[    0.246839] devtmpfs: initialized
+[    0.252821] posixtimers hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.261179] futex hash table entries: 1024 (32768 bytes on 1 NUMA nodes, total 32 KiB, linear).
+[    0.271986] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.281672] FPU Affinity set after 11940 emulations
+[    0.287041] pm-cps: CPC does not support clock gating
+[    0.296666] SCSI subsystem initialized
+[    0.300920] usbcore: registered new interface driver usbfs
+[    0.307037] usbcore: registered new interface driver hub
+[    0.312902] usbcore: registered new device driver usb
+[    0.319963] clocksource: Switched to clocksource GIC
+[    0.337169] NET: Registered PF_INET protocol family
+[    0.342889] IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.351806] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.361112] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.369663] TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.378227] TCP bind hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.386279] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.393422] UDP hash table entries: 256 (order: 2, 14336 bytes, linear)
+[    0.400804] UDP-Lite hash table entries: 256 (order: 2, 14336 bytes, linear)
+[    0.408924] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.415352] USB: Using revC phy
+[    0.425528] register USB PHY: ehci-phy, RTK USB PHY version: v3.0 (2022.01.05)
+[    0.553037] EHCI2 initialization2
+[    0.563525] register USB PHY: ehci2-phy, RTK USB PHY version: v3.0 (2022.01.05)
+[    0.672474] [Kthread : luan_watchdog ] init complete!
+[    0.678041] ************ Watchdog Setting ****************
+[    0.684199] WDT_E=0, (1-enable, 0-disable)
+[    0.688685] WDT_CLK_SC=3
+[    0.691511] PH1_TO=31
+[    0.694008] PH2_TO=0
+[    0.696427] WDT_RESET_MODE=0
+[    0.699622] **********************************************
+[    0.705761] ====   Luna Watchdog Regs   =====
+[    0.710580] BSP_WDTCNTRR(0xb8003260): 0x00000000
+[    0.715691] BSP_WDTINTRR(0xb8003264): 0x00000000
+[    0.720836] BSP_WDTCTRLR(0xb8003268): 0xe7c00000
+[    0.725951] =================================
+[    0.731978] workingset: timestamp_bits=14 max_order=16 bucket_order=2
+[    0.739394] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.745904] fuse: init (API version 7.45)
+[    1.181096] io scheduler mq-deadline registered
+[    1.186074] io scheduler kyber registered
+[    1.190992] rtk-mips-ia-gpio 1b000038.gpio-controller: resource - [mem 0x1b000038-0x1b000043 flags 0x200] mapped at 0x(ptrval)
+[    1.203678] rtk-mips-ia-gpio 1b000038.gpio-controller: resource - [mem 0x18003308-0x1800335b flags 0x200] mapped at 0x(ptrval)
+[    1.216374] gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    1.227156] rtk-mips-ia-gpio 1b000038.gpio-controller: Setting up IRQs for GPIO bank 0
+[    1.236129] gpio gpiochip1: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    1.246722] rtk-mips-ia-gpio 1b000038.gpio-controller: Setting up IRQs for GPIO bank 1
+[    1.255619] gpio gpiochip2: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    1.266010] rtk-mips-ia-gpio 1b000038.gpio-controller: Setting up IRQs for GPIO bank 2
+[    1.356454] Serial: 8250/16550 driver, 1 ports, IRQ sharing disabled
+[    1.365203] printk: legacy console [ttyS0] disabled
+[    1.371203] 18002000.serial: ttyS0 at MMIO 0x18002000 (irq = 20, base_baud = 12327200) is a 16550A
+[    1.381174] printk: legacy console [ttyS0] enabled
+[    1.381174] printk: legacy console [ttyS0] enabled
+[    1.391571] printk: legacy bootconsole [early0] disabled
+[    1.391571] printk: legacy bootconsole [early0] disabled
+[    1.405488] Init xPON/Switch Driver Module....
+[    1.406419] rtk_switch_irq_init 368 irq=38 name=apl_sw
+[    1.416948] FAIL
+[    1.418957] Init xPON/Switch Core Dev Module....
+[    1.418972] OK
+[    1.425835]
+[    1.425835]  rtdrv_init !!!! for netfilter
+[    1.431942] [rtdrv_init]: rtdrv_ext_igmpHook_sockopts init.
+[    1.438034] [rtdrv_init]: rtdrv_ext_igmpHook_sockopts success.
+[    1.444484] pkt_redirect_init complete
+[    1.448596] intr_bcaster_init: register link change interrupt failed!
+[    1.456041] drivers/net/ethernet/realtek/rtl86900/sdk/src/module/dspbo_queue/dspbo_queue_main.c:284 pDsPboQueueTask complete!
+[    1.469154] re8670_set_features 1079: enter
+[    1.474476] re8670_set_features 1079: enter
+[    1.479664] re8670_set_features 1079: enter
+[    1.484925] re8670_set_features 1079: enter
+[    1.490069] re8670_set_features 1079: enter
+[    1.495122] re8670_set_features 1079: enter
+[    1.500214] re8670_set_features 1079: enter
+[    1.505277] re8670_set_features 1079: enter
+[    1.510413] re8670_set_features 1079: enter
+[    1.515465] re8670_set_features 1079: enter
+[    1.520228] >>>> Set nas0 carrier off !!!
+[    1.553179] Disable gmac[0] padding
+[    1.557101]
+[    1.557101] rtk_gmac_netdev_init 12339: netdev name=eth0 exist
+[    1.577797] Disable gmac[1] padding
+[    1.581709]
+[    1.581709] rtk_gmac_netdev_init 12339: netdev name=eth0 exist
+[    1.601376] Disable gmac[2] padding
+[    1.605206] first entry: 0, portmask 2047, rx: (ptrval)
+[    1.611164] [FCEXT] rtk_fc_extmodule_init
+[    1.615728] [FCMGR] module init, detect 4 cpus online @rtk_fc_mgr_init(924)
+[    1.652978] fc_db.controlFuc.external_switch_en = 0 external_switch_port_offset = 0
+[    1.661414] fc_db.controlFuc.mem_leak_debug = 0 fc_db.controlFuc.vlan_filtering = 0
+[    1.669793] fc_db.controlFuc.special_fast_forward_mode = 0 fc_db.controlFuc.hwnat_customize = 0 fc_db.controlFuc.hwnat_customize_nptv6_sram_acc_v2 = 0
+[    1.684734] rtk_init_without_pon 482
+[    1.688651] rtk_fc_rtl9607c_API_init(763): func_return=0xf expect_return=0x0, fail, so abort!
+[    1.699057] CPU: 2 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.39 #8 NONE
+[    1.699075] Hardware name: rtk,9607c
+[    1.699085] Stack : 813ed160 800b4210 00000000 00000000 00000000 00000000 00000000 00000000
+[    1.699134]         00000000 00000000 00000000 00000000 00000000 00000001 81c37ba8 732ded7c
+[    1.699174]         81c37c40 00000000 00000000 00000000 00000038 80a4ab24 00000000 ffffffff
+[    1.699215]         0000007c 81598ae4 81598b13 fffffffc 00000000 00000000 80c44850 80d20000
+[    1.699257]         813cd160 81c37d78 815c0000 8273aa00 00000000 00000020 00000008 81590008
+[    1.699298]         ...
+[    1.699309] Call Trace:
+[    1.699314] [<8001e84c>] show_stack+0x60/0x154
+[    1.699349] [<80013fe8>] dump_stack_lvl+0x70/0xb0
+[    1.699367] [<80663a64>] assert_eq+0x44/0x58
+[    1.699387]
+[    1.699404] [WARNING] Register hwnat module RTK_FC_API_MODULE failed.  @rtk_fc_param_init(16726)
+[    1.790307] priority: 0, portmask 2047, rx: (ptrval)
+[    1.795738] insert here, priority: 1, portmask 2047, rx: (ptrval)
+[    1.802410] priority: 1, portmask 2047, rx: (ptrval)
+[    1.807843] insert here, priority: 10, portmask 2047, rx: (ptrval)
+[    1.814617] RTK FleetConntrack Driver - manager module init
+[    1.820718]  - mem usage 94 KB (db:28608 nicrx_ipi:68352)
+[    1.826633] rtk_common_utility_init 533 common utility init!
+[    1.832952] PPP generic driver version 2.4.2
+[    1.838211] NET: Registered PF_PPPOX protocol family
+[    1.843746] PPTP driver version 0.8.5
+[    1.848341] ehci-platform ehci-platform.0: EHCI Host Controller
+[    1.848494] usbcore: registered new interface driver cdc_acm
+[    1.850370] ehci-platform ehci-platform.1: EHCI Host Controller
+[    1.850414] ehci-platform ehci-platform.1: new USB bus registered, assigned bus number 1
+[    1.854026] ehci-platform ehci-platform.1: can't setup: -145
+[    1.854043] ehci-platform ehci-platform.1: USB bus 1 deregistered
+[    1.854074] ehci-platform ehci-platform.1: probe with driver ehci-platform failed with error -145
+[    1.854148] ohci-platform ohci-platform.0: Generic Platform OHCI controller
+[    1.854170] ohci-platform ohci-platform.0: new USB bus registered, assigned bus number 1
+[    1.854277] ohci-platform ohci-platform.0: request interrupt 74 failed
+[    1.854291] ohci-platform ohci-platform.0: USB bus 1 deregistered
+[    1.854309] ohci-platform ohci-platform.0: probe with driver ohci-platform failed with error -89
+[    1.854360] ohci-platform ohci-platform.1: Generic Platform OHCI controller
+[    1.854397] ohci-platform ohci-platform.1: new USB bus registered, assigned bus number 1
+[    1.854455] ohci-platform ohci-platform.1: request interrupt 40 failed
+[    1.854468] ohci-platform ohci-platform.1: USB bus 1 deregistered
+[    1.854484] ohci-platform ohci-platform.1: probe with driver ohci-platform failed with error -89
+[    1.854975] ehci-platform ehci-platform.0: new USB bus registered, assigned bus number 1
+[    1.861141] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.872596] ehci-platform ehci-platform.0: can't setup: -145
+[    1.876612] usbcore: registered new interface driver usblp
+[    1.882669] ehci-platform ehci-platform.0: USB bus 1 deregistered
+[    1.889694] usbcore: registered new interface driver uas
+[    1.899095] ehci-platform ehci-platform.0: probe with driver ehci-platform failed with error -145
+[    1.906784] usbcore: registered new interface driver usb-storage
+[    2.037550] usbcore: registered new interface driver usbserial_generic
+[    2.044745] usbserial: USB Serial support registered for generic
+[    2.051377] usbcore: registered new interface driver ftdi_sio
+[    2.057679] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    2.065746] usbcore: registered new interface driver option
+[    2.071884] usbserial: USB Serial support registered for GSM modem (1-port)
+[    2.079534] usbcore: registered new interface driver pl2303
+[    2.085687] usbserial: USB Serial support registered for pl2303
+[    2.092333] hid: raw HID events driver (C) Jiri Kosina
+[    2.098479] usbcore: registered new interface driver usbhid
+[    2.104624] usbhid: USB HID core driver
+[    2.108923] u32 classifier
+[    2.111893]     input device check on
+[    2.116603] gre: GRE over IPv4 demultiplexer driver
+[    2.122092] NET: Registered PF_INET6 protocol family
+[    2.131060] Segment Routing with IPv6
+[    2.135204] In-situ OAM (IOAM) with IPv6
+[    2.139659] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    2.147890] NET: Registered PF_PACKET protocol family
+[    2.153578] Bridge firewalling registered
+[    2.158029] l2tp_core: L2TP core driver, V2.0
+[    2.162830] l2tp_ppp: PPPoL2TP kernel driver, V2.0
+[    2.168072] 8021q: 802.1Q VLAN Support v1.8
+[    2.190047] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    2.198285] clk: Disabling unused clocks
+[    2.210628] Freeing unused kernel image (initmem) memory: 1644K
+[    2.216625] This architecture does not have kernel memory protection.
+[    2.223115] Run /init as init process
+[    2.226779]   with arguments:
+[    2.229751]     /init
+[    2.232045]   with environment:
+[    2.235195]     HOME=/
+[    2.237553]     TERM=linux
+[    2.240956] process '/bin/busybox' started with executable stack
+
+  RTL9607C  Linux 6.18.39  (rtl86900 SDK)
+  rootfs: squashfs/busybox minimal bring-up
+
+/bin/sh: can't access tty; job control turned off
+~ # ~ # [    5.759911] tv_sec:5
+[    5.759950] CPU0 kick watchdog!
+[   10.799907] tv_sec:10
+[   10.799924] CPU0 kick watchdog!
+[   15.839904] tv_sec:15
+[   15.839921] CPU0 kick watchdog!
+[   20.879902] tv_sec:20
+[   20.879914] CPU0 kick watchdog!
+[   25.919903] tv_sec:25
+[   25.919915] CPU0 kick watchdog!
+[   30.959904] tv_sec:30
+[   30.959917] CPU0 kick watchdog!
+[   35.999904] tv_sec:35
+[   35.999915] CPU0 kick watchdog!
+[   41.039907] tv_sec:40
+[   41.039919] CPU0 kick watchdog!
+[   46.079905] tv_sec:45
+[   46.079916] CPU0 kick watchdog!
+[   51.119906] tv_sec:51
+[   51.119918] CPU0 kick watchdog!
