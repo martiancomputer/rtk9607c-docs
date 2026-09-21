@@ -1,4 +1,177 @@
 # rtk9607c-docs
 
+Evidence-driven technical documentation for the **Realtek RTL9607C / RTL9607Cv2**
+router/XPON SoC family.
 
-- add credits for gpl sources used and vendor sources
+This repository exists to turn scattered vendor source, board bring-up work,
+runtime measurements, Git history and reverse-engineering notes into a durable
+technical reference.
+
+The immediate hardware reference is the **TP-Link Archer AX10 v3 / AX1500**
+RTL9607C platform used by the Phoebus-OS project, but the documentation is
+structured to keep **SoC behaviour**, **board wiring**, **vendor implementation
+details** and **kernel-port behaviour** separate.
+
+> This project is independent community documentation. It is not an official
+> Realtek or TP-Link documentation repository.
+
+## Purpose
+
+The RTL9607C has useful implementation knowledge spread across vendor GPL
+sources, downstream kernel code, bootloader data, board firmware, live hardware
+experiments and the Phoebus BSP history.
+
+The goal here is not to reproduce those trees. It is to answer questions such as:
+
+- what hardware blocks exist and how are they connected?
+- which switch port, SerDes lane, MDIO address or GPIO actually maps to a board
+  function?
+- which behaviour is inherent to the RTL9607C and which is board-specific?
+- what does the vendor source imply, and what has been independently observed?
+- which mainline Linux changes were required to keep the vendor hardware support
+  working?
+- where are the unknowns?
+
+A useful document in this repository should make it possible to tell **what is
+known, how it is known, and how strong the evidence is**.
+
+## Evidence model
+
+Documentation is classified by evidence strength rather than by how plausible a
+claim sounds.
+
+| Status | Meaning |
+|---|---|
+| **VERIFIED** | Directly observed on RTL9607C hardware. |
+| **CORROBORATED** | Independent evidence agrees, typically hardware observation plus source/register evidence. |
+| **SOURCE-DERIVED** | Established from RTL9607C vendor or project source, but not independently measured on hardware. |
+| **INFERRED** | Supported by multiple observations, but not directly demonstrated. |
+| **HYPOTHESIS** | Plausible working theory awaiting a discriminating test. |
+| **RELATED-SOC** | Known from another Realtek family and used only as comparative context. |
+
+These labels apply to **claims**, not entire files. A document may contain a
+verified port map, a source-derived register interpretation and an open
+hypothesis at the same time.
+
+### Evidence types
+
+The project will primarily draw from:
+
+1. **Hardware observations** — boot logs, register reads, MIB counters, PHY
+   dumps, packet tests, timing measurements, NAND dumps and controlled A/B tests.
+2. **Git diffs** — strong evidence for exactly what implementation changed.
+3. **Commit messages** — contemporary engineering notes containing intent,
+   observations, failed approaches and test results.
+4. **Current Phoebus source trees** — the implementation state of BSP-6, BSP-7
+   and the shared SDK.
+5. **Original/public vendor and GPL material** — provenance and baseline
+   behaviour.
+6. **Bootloader and stock-firmware evidence** — partition layouts, environment,
+   scripts, calibration/configuration data and observed boot behaviour.
+7. **Upstream Linux and related Realtek support** — API history and comparative
+   implementation evidence, never silently treated as RTL9607C fact.
+
+A Git diff proves that code changed. A commit message records what the author
+believed or observed at that time. A runtime artifact demonstrates what the
+hardware actually did. The strongest findings normally combine all three.
+
+## Repository boundaries
+
+This repository is the **knowledge base**.
+
+It is deliberately not the place for moving kernel-status dashboards or copies
+of entire vendor trees.
+
+Implementation state belongs in:
+
+- [PhoebusBSP-6](https://github.com/martiancomputer/PhoebusBSP-6) — Linux 6.18
+  LTS hardware-reference BSP
+- [PhoebusBSP-7](https://github.com/martiancomputer/PhoebusBSP-7) — current
+  mainline forward-port
+- [Phoebus-SDK](https://github.com/martiancomputer/Phoebus-SDK) — shared vendor
+  source snapshot, rootfs, services and tooling
+
+This repository extracts the durable hardware and engineering knowledge from
+those projects while retaining links back to the evidence.
+
+## Initial layout
+
+The repository is intentionally starting small. The first stage is to establish
+source provenance and documentation rules before importing technical findings.
+
+```
+rtk9607c-docs/
+├── README.md
+├── LICENSE
+├── SOURCES.md
+├── CONTRIBUTING.md
+└── docs/
+    └── README.md
+```
+
+The intended long-term documentation structure is:
+
+```
+docs/
+├── soc/          RTL9607C architecture and on-SoC peripherals
+├── networking/  switch, MAC, SerDes, MDIO, FleetConntrack
+├── boards/       board-specific wiring and platform data
+├── findings/     individual reverse-engineering investigations
+├── software/     vendor BSP, Linux porting and device-tree notes
+├── reference/    compact maps, tables and indexes
+└── evidence/     curated logs, measurements and reproducible observations
+```
+
+Those directories should be created as material is ready for them rather than
+filled with speculative placeholders.
+
+## Documentation rules
+
+A few rules are non-negotiable:
+
+- **Do not manufacture completeness.** Unknown registers and unexplained bits
+  stay unknown.
+- **Separate board facts from SoC facts.** A TP-Link wiring decision is not an
+  RTL9607C architectural property.
+- **Separate vendor intent from hardware observation.** Source code can explain
+  an implementation without proving the silicon behaves that way.
+- **Preserve negative results.** A failed experiment can eliminate an entire
+  class of explanations.
+- **Prefer reproducible evidence.** Include the command, register, counter,
+  commit or test condition needed to reproduce an important claim.
+- **Keep historical claims historical.** A result from Linux 6.18 or 7.1 is not
+  silently promoted to a current-kernel result.
+- **Cite the evidence.** Important claims should point to their source, commit,
+  log, measurement or finding document.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution and evidence format.
+
+## Sources and provenance
+
+[SOURCES.md](SOURCES.md) is the source ledger for the project.
+
+It records where material came from, what role it plays in the research, and
+what license or redistribution constraints apply. The external source inventory
+is intentionally incomplete at this initial stage and will be populated from
+the original source material used during the RTL9607C work.
+
+Third-party source material is **not relicensed** by this repository.
+
+## License
+
+The original documentation and project-authored material in this repository are
+licensed under the [Apache License 2.0](LICENSE), unless a file explicitly says
+otherwise.
+
+Third-party code, documents, dumps and other source material retain their
+original licenses and copyright. Where practical, this repository references
+such material instead of copying it. See [SOURCES.md](SOURCES.md).
+
+## Current phase
+
+The repository is currently in the **source inventory and evidence extraction**
+phase.
+
+The next useful step is to populate `SOURCES.md`, then mine BSP-6, BSP-7 and
+the shared SDK for findings whose evidence can be reconstructed from commits,
+diffs and hardware observations.
