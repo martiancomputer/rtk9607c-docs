@@ -22,3 +22,10 @@ docs/
 See the top-level [README](../README.md) for project scope,
 [SOURCES.md](../SOURCES.md) for provenance, and
 [CONTRIBUTING.md](../CONTRIBUTING.md) for evidence and writing rules.
+
+
+## Board documents
+
+- [Archer AX10 v3 WAN PHY path](boards/archer-ax10-v3/wan-phy.md) — switch port
+  6, SDS0/SGMII0, external RTL8211F/FS-family PHY, external MDIO and the
+  copper-link-versus-datapath distinction.
