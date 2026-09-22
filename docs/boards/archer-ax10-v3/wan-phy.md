@@ -15,28 +15,53 @@ that port through **SDS0 / SGMII0**, and connects it to an external
 **RTL8211F/RTL8211FS-family Gigabit Ethernet PHY**. The PHY then drives the
 copper pairs through the Ethernet magnetics to the WAN RJ45 jack.
 
-The verified board path is:
+The verified topology is better represented as two separate paths: the packet
+datapath and the PHY management bus.
 
 ```
-RTL9607C integrated switch
-        |
-        | switch port 6
-        v
-RTL9607C MAC / SGMII0
-        |
-        | SDS0
-        v
-RTL8211F/FS-family external PHY
-        |
-        | 10/100/1000BASE-T MDI
-        v
-magnetics / transformer
-        |
-        v
-WAN RJ45
+                              Linux
+                                │
+                                │  RX/TX netdev mapping
+                                │
+                             eth0.8
+                                │
+                                │
+                    ┌───────────▼───────────┐
+                    │      RTL9607C         │
+                    │                       │
+                    │  integrated switch   │
+                    │      port 6 / MAC    │
+                    └───────────┬───────────┘
+                                │
+                                │  SDS0 / SGMII0
+                                │  serial MAC↔PHY link
+                                │
+                    ┌───────────▼───────────┐
+                    │ RTL8211F/FS-family    │
+                    │ external GbE PHY      │
+                    └───────────┬───────────┘
+                                │
+                                │  10/100/1000BASE-T MDI
+                                │
+                         ┌──────▼──────┐
+                         │ magnetics / │
+                         │ transformer │
+                         └──────┬──────┘
+                                │
+                                │  copper pairs
+                                │
+                            WAN RJ45
+
+
+        RTL9607C external-MDIO control plane
+
+          GPIO 65 / MDC ───────────────┐
+                                       ├────► RTL8211F/FS management
+          GPIO 10 / MDIO ──────────────┘
 ```
 
-The external PHY is managed separately over a bit-banged external MDIO bus.
+The packet path and management path are independent. MDC/MDIO configures and
+reads the PHY; user traffic does not flow over MDIO.
 
 A critical consequence is that **copper link at the RTL8211F/FS does not prove
 that packets can reach the RTL9607C switch**. The copper side can negotiate
@@ -54,15 +79,34 @@ WAN_PHY_PORT_SET="1:6"
 Phoebus hardware testing independently matched the four LAN jacks to switch
 ports 0 through 3 and the WAN path to port 6.
 
-The working Linux mapping is:
+The Linux-facing and physical mappings should be read separately:
 
 ```
-WAN jack
-  -> external RTL8211F/FS-family PHY
-  -> SDS0 / SGMII0
-  -> RTL9607C switch port 6
-  -> eth0.8
+Linux logical mapping:
+
+    eth0.8
+       │
+       └──── RX/TX mapping ────► RTL9607C switch port 6
+
+
+Physical WAN datapath:
+
+    RTL9607C switch port 6 / MAC
+               │
+               │ SDS0 / SGMII0
+               ▼
+       RTL8211F/FS-family PHY
+               │
+               │ 10/100/1000BASE-T MDI
+               ▼
+          magnetics
+               │
+               ▼
+           WAN RJ45
 ```
+
+Traffic is bidirectional; the arrows above show the architectural relationship,
+not a one-way packet direction.
 
 This is a **board-specific fact**. It must not be generalized to every RTL9607C
 design.
@@ -283,8 +327,20 @@ The following Realtek documents were used as PHY-family reference material:
 The documents describe the PHY family, MAC-side interfaces, MDIO management,
 strap configuration, reset/interrupt behaviour and RGMII/SGMII capabilities.
 
-The PDFs are not mirrored here. The project references the existing Realtek
-documentation corpus maintained by jameywine and records only derived findings.
+The PDFs are not mirrored here because duplicating the existing documentation
+archive would add little value.
+
+First check **jameywine's Realtek documentation repository**:
+
+https://github.com/jameywine/realtek-doc
+
+Search there for the exact document title or device family. If a document cited
+by this project is not present in that repository, contact the maintainer at:
+
+**sleazyconsumer@proton.me**
+
+When requesting a document, include the exact title/revision referenced here so
+similarly named Realtek revisions are not confused.
 
 ## Evidence chain
 
